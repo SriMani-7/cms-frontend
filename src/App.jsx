@@ -65,7 +65,12 @@ const router = createBrowserRouter(
           <Route path="faculty">
             <Route index element={<FacultyListPage />} />
           </Route>
-          <Route path="courses" element={<AcadamicsCoursesPage />} />
+          <Route path="courses">
+            <Route index element={<AcadamicsCoursesPage />} />
+            <Route path=":id">
+              <Route index element={<>Course overview</>} />
+            </Route>
+          </Route>
           <Route path="admissions">
             <Route
               index
@@ -84,7 +89,6 @@ const router = createBrowserRouter(
           <Route path="feedbacks" element={<>Recieved Feedbacks</>} />
         </Route>
       </Route>
-
     </Route>
   )
 );

@@ -4,9 +4,11 @@ import { NewCourseDialog } from "./add-programme";
 import { Button } from "@/components/ui/button";
 import { createCourse, fetchCourses } from "./services";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 export default function AcadamicsCoursesPage() {
   const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getCourses() {
@@ -18,21 +20,25 @@ export default function AcadamicsCoursesPage() {
         console.error("while getting the coourses", e);
         let dummy = [
           {
+            id: 90,
             name: "Introduction to JavaScript",
             description:
               "Learn the fundamentals of JavaScript programming language.",
           },
           {
+            id: 900,
             name: "Advanced Web Development",
             description:
               "Explore advanced topics in web development including frameworks and tools.",
           },
           {
+            id: 909,
             name: "Data Structures and Algorithms",
             description:
               "Study fundamental data structures and algorithms used in programming.",
           },
           {
+            id: 9,
             name: "Machine Learning Foundations",
             description:
               "An introduction to the basics of machine learning and its applications.",
@@ -80,7 +86,8 @@ export default function AcadamicsCoursesPage() {
           </Button>
         </div>
         <div className="grid grid-cols-3 gap-4 p-3 grow-0">
-          {courses.map((course) => <Card key={course.id} className="">
+          {courses.map((course) => (
+            <Card key={course.id} className="">
               <CardHeader className="">
                 <CardTitle className="text-lg">{course.name}</CardTitle>
               </CardHeader>
@@ -88,12 +95,19 @@ export default function AcadamicsCoursesPage() {
                 <p>{course.description}</p>
               </CardContent>
               <CardHeader>
-              <Button variant="outline">View Course</Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    navigate(""+course.id);
+                  }}
+                >
+                  View Course
+                </Button>
               </CardHeader>
-          </Card>)}
+            </Card>
+          ))}
         </div>
       </section>
-      
     </section>
   );
 }
