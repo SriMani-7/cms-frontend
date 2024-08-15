@@ -8,35 +8,14 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { PlusIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import { createFaculty, fetchFaculty } from "./services";
+import { useState } from "react";
 import { AddFacultyDialogContent } from "./add-faculty";
 import { Dialog } from "@/components/ui/dialog";
+import { useFaculties } from "./state";
 
 export const FacultyListPage = () => {
-  const [faculties, setFaculties] = useState([]);
+  const { faculties, handleNewFaculty } = useFaculties();
   const [openFacultyDialog, setOpenFacultyDialog] = useState(false);
-
-  useEffect(() => {
-    async function getFaculty() {
-      const res = await fetchFaculty();
-      let data = res.data;
-      setFaculties(data);
-    }
-    getFaculty();
-  }, []);
-
-  const handleNewFaculty = async (data) => {
-    try {
-      let res = await createFaculty(data);
-      if (res.status == 200) {
-        faculties.push(res.data);
-        setFaculties(faculties);
-      }
-    } catch (error) {
-      console.error("While in creating faculty", error);
-    }
-  };
 
   return (
     <>

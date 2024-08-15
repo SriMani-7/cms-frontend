@@ -1,14 +1,10 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8888/api/faculty";
+// const API_URL = "http://localhost:8888/api/faculty";
+const API_URL = "http://localhost:3000/faculty"
 
 export const fetchFaculty = async () => {
-  try {
-    const response = await axios.get(API_URL);
-    return response;
-  } catch (e) {
-    console.error("while fecthing faculty", e);
-  }
+  return axios.get(API_URL);
 };
 
 export const createFaculty = async (department) => {
