@@ -1,77 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
 import { NewCourseDialog } from "./add-programme";
 import { Button } from "@/components/ui/button";
-import { createCourse, fetchCourses } from "./services";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { useCourses } from "./state";
 
 export default function AcadamicsCoursesPage() {
-  const [courses, setCourses] = useState([]);
+  const { courses, handleNewCourse } = useCourses();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    async function getCourses() {
-      try {
-        let res = await fetchCourses();
-        let data = res.data;
-        setCourses(data);
-      } catch (e) {
-        console.error("while getting the coourses", e);
-        let dummy = [
-          {
-            id: 90,
-            name: "Introduction to JavaScript",
-            description:
-              "Learn the fundamentals of JavaScript programming language.",
-          },
-          {
-            id: 900,
-            name: "Advanced Web Development",
-            description:
-              "Explore advanced topics in web development including frameworks and tools.",
-          },
-          {
-            id: 909,
-            name: "Data Structures and Algorithms",
-            description:
-              "Study fundamental data structures and algorithms used in programming.",
-          },
-          {
-            id: 9,
-            name: "Machine Learning Foundations",
-            description:
-              "An introduction to the basics of machine learning and its applications.",
-          },
-        ];
-        setCourses(dummy);
-      }
-    }
-
-    getCourses();
-  }, []); // get all courses
-
   const [newCourse, setNewCourse] = useState(false);
-
-  const handleNewProgramme = async (data) => {
-    let postCourse = async () => {
-      try {
-        let res = await createCourse(data);
-        console.log(res.data);
-        courses.push(res.data);
-        setCourses(courses);
-      } catch (error) {
-        console.error("While in cretiing the course", error);
-      }
-      setNewCourse(false);
-    };
-    postCourse(data);
-  };
 
   return (
     <section>
       <Dialog open={newCourse} onOpenChange={setNewCourse}>
-        <NewCourseDialog handleSubmit={handleNewProgramme} />
+        <NewCourseDialog handleSubmit={handleNewCourse} />
       </Dialog>
       <section>
         <div className="flex justify-between">

@@ -48,5 +48,22 @@
       "gender": "Female",
       "designation": "Professor"
     }
+  ],
+  "courses": [
+    {
+        "id": "8113",
+        "name": "Java",
+        "description": "This course teaches you the most appropriate way of learning programming."
+    },
+    {
+        "id": "8114",
+        "name": "Python",
+        "description": "This course introduces you to Python programming and its applications in data science and web development."
+    },
+    {
+        "id": "8115",
+        "name": "JavaScript",
+        "description": "This course covers the fundamentals of JavaScript programming for web development and interactive front-end applications."
+    }
   ]
 }
