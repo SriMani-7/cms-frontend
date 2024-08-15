@@ -1,3 +1,52 @@
 {
-    
+  "faculty": [
+    {
+      "id": "23323",
+      "email": "johndoe@example.com",
+      "name": "John Doe",
+      "mobileNumber": "123-456-7890",
+      "gender": "Male",
+      "designation": "Professor"
+    },
+    {
+      "id": "23324",
+      "email": "janedoe@example.com",
+      "name": "Jane Doe",
+      "mobileNumber": "234-567-8901",
+      "gender": "Female",
+      "designation": "Associate Professor"
+    },
+    {
+      "id": "23325",
+      "email": "michael.smith@example.com",
+      "name": "Michael Smith",
+      "mobileNumber": "345-678-9012",
+      "gender": "Male",
+      "designation": "Assistant Professor"
+    },
+    {
+      "id": "23326",
+      "email": "emily.jones@example.com",
+      "name": "Emily Jones",
+      "mobileNumber": "456-789-0123",
+      "gender": "Female",
+      "designation": "Lecturer"
+    },
+    {
+      "id": "23327",
+      "email": "robert.brown@example.com",
+      "name": "Robert Brown",
+      "mobileNumber": "567-890-1234",
+      "gender": "Male",
+      "designation": "Senior Lecturer"
+    },
+    {
+      "id": "23328",
+      "email": "lisa.white@example.com",
+      "name": "Lisa White",
+      "mobileNumber": "678-901-2345",
+      "gender": "Female",
+      "designation": "Professor"
+    }
+  ]
 }
