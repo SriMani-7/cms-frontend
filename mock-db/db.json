@@ -51,19 +51,74 @@
   ],
   "courses": [
     {
-        "id": "8113",
-        "name": "Java",
-        "description": "This course teaches you the most appropriate way of learning programming."
+      "id": "8113",
+      "name": "Java",
+      "description": "This course teaches you the most appropriate way of learning programming.",
+      "students": [
+        {
+          "id": "1001",
+          "firstName": "Alice",
+          "lastName": "Johnson",
+          "email": "alice.johnson@example.com"
+        },
+        {
+          "id": "1002",
+          "firstName": "Bob",
+          "lastName": "Smith",
+          "email": "bob.smith@example.com"
+        },
+        {
+          "id": "1003",
+          "firstName": "Carol",
+          "lastName": "Davis",
+          "email": "carol.davis@example.com"
+        },
+        {
+          "id": "1004",
+          "firstName": "Dave",
+          "lastName": "Lee",
+          "email": "dave.lee@example.com"
+        },
+        {
+          "id": "1005",
+          "firstName": "Eve",
+          "lastName": "Taylor",
+          "email": "eve.taylor@example.com"
+        }
+      ],
+      "subjects": [
+        {
+          "id": "101",
+          "name": "Introduction to Java",
+          "type": "Theory",
+          "facultyName": "John Doe",
+          "facultyId": "23323"
+        },
+        {
+          "id": "102",
+          "name": "Java Programming Basics",
+          "type": "Practical",
+          "facultyName": "Michael Smith",
+          "facultyId": "23325"
+        },
+        {
+          "id": "103",
+          "name": "Advanced Java Concepts",
+          "type": "Theory",
+          "facultyName": "Lisa White",
+          "facultyId": "23328"
+        }
+      ]
     },
     {
-        "id": "8114",
-        "name": "Python",
-        "description": "This course introduces you to Python programming and its applications in data science and web development."
+      "id": "8114",
+      "name": "Python",
+      "description": "This course introduces you to Python programming and its applications in data science and web development."
     },
     {
-        "id": "8115",
-        "name": "JavaScript",
-        "description": "This course covers the fundamentals of JavaScript programming for web development and interactive front-end applications."
+      "id": "8115",
+      "name": "JavaScript",
+      "description": "This course covers the fundamentals of JavaScript programming for web development and interactive front-end applications."
     }
   ]
 }

@@ -14,6 +14,7 @@ import ApplicationFormPage from "./features/admissions";
 import AcadamicsCoursesPage from "./features/courses";
 import { ForgetPasswordPage, LoginPage } from "./features/authentication";
 import { FacultyListPage } from "./features/faculty";
+import { CourseOverviewPage } from "./features/courses/overview";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -68,7 +69,7 @@ const router = createBrowserRouter(
           <Route path="courses">
             <Route index element={<AcadamicsCoursesPage />} />
             <Route path=":id">
-              <Route index element={<>Course overview</>} />
+              <Route index element={<CourseOverviewPage />} />
             </Route>
           </Route>
           <Route path="admissions">
