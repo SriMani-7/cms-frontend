@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const API_URL = "http://localhost:8888/api/faculty";
-const API_URL = "http://localhost:3000/faculty"
+const API_URL = "http://localhost:5173/api/faculty";
 
 export const fetchFaculty = async () => {
   return axios.get(API_URL);

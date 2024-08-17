@@ -60,5 +60,12 @@ export default function runMockServer() {
     };
   });
 
+  server.get("/faculty", (s) => s.faculties.all().models)
+
+  server.post("/faculty", (s, r) => {
+    let data = JSON.parse(r.requestBody)
+    return s.faculties.create(data).attrs;
+  })
+
   return server;
 }
