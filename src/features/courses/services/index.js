@@ -11,3 +11,7 @@ export const createCourse = async (programme) => {
 };
 
 export const fetchCourse = async (id) => axios.get(API_URL + "/" + id);
+
+export function createCourseSubject(cid, data) {
+  return axios.post(API_URL+"/"+cid+"/subjects", data)
+}

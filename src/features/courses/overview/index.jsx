@@ -9,15 +9,26 @@ import {
 } from "@/components/ui/table";
 import { useCourse } from "./state";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { Dialog } from "@/components/ui/dialog";
+import CourseSubjectDialog from "../CourseSubjectDialog";
 
 export function CourseOverviewPage() {
   const { id } = useParams();
-  const { info, students, subjects } = useCourse(id);
+  const { info, students, subjects, handleAddSubject } = useCourse(id);
+  const [newSubject, setNewSubject] = useState(false);
+
+
+  async function onAddSubject(data) {
+    handleAddSubject(data)
+    setNewSubject(false)
+  }
 
   return (
     <>
       <p>Courses / {info.name}</p>
       <p>{info.description}</p>
+      <Button onClick={() => setNewSubject(true)}>New subject</Button>
       <div>
         <h3>Subjects</h3>
         <CourseSubjectsTable subjects={subjects} />
@@ -26,6 +37,11 @@ export function CourseOverviewPage() {
         <h3>Students</h3>
         <CourseStudentsTable students={students} />
       </div>
+
+
+      <Dialog open={newSubject} onOpenChange={setNewSubject}>
+          <CourseSubjectDialog handleSubmit={onAddSubject}/>
+      </Dialog>
     </>
   );
 }

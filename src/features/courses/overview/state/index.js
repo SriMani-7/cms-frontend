@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { fetchCourse } from "../../services";
+import { createCourseSubject, fetchCourse } from "../../services";
 
 export function useCourse(id) {
   const [info, setInfo] = useState({});
   const [students, setStudents] = useState([]);
   const [subjects, setSubjects] = useState([]);
+
+  async function handleAddSubject(data) {
+    createCourseSubject(id, data).then(res => {
+      setSubjects([...subjects, res.data]);
+    })
+  }
 
   useEffect(() => {
     (async function () {
@@ -28,5 +34,5 @@ export function useCourse(id) {
     })();
   }, [id]);
 
-  return { info, students, subjects };
+  return { info, students, subjects, handleAddSubject };
 }
